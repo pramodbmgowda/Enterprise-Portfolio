@@ -9,13 +9,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    // BG changed to Dark #021c16
     <nav className="bg-[#021c16]/95 backdrop-blur-md text-white sticky top-0 z-50 border-b border-[#C5A059]/20">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         
-        {/* LOGO AREA */}
-        <div className="flex items-center gap-4">
-          <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full border-2 border-[#C5A059] overflow-hidden bg-[#052e24] flex items-center justify-center">
+        {/* LOGO AREA - Optimized for Mobile */}
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="relative z-10 w-10 h-10 md:w-16 md:h-16 shrink-0 rounded-full border-2 border-[#C5A059] overflow-hidden bg-[#052e24] flex items-center justify-center">
             <Image 
               src="/logo.svg" 
               alt="Logo" 
@@ -25,10 +24,11 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <h1 className="text-sm md:text-lg font-bold tracking-wider text-[#C5A059] uppercase leading-none max-w-[200px]">
+            {/* Smaller text on mobile to prevent overflow */}
+            <h1 className="text-xs md:text-lg font-bold tracking-wider text-[#C5A059] uppercase leading-none max-w-[140px] md:max-w-[200px]">
               Kalabhairaveshvara
             </h1>
-            <span className="text-[10px] text-[#94A3B8] tracking-widest mt-1 uppercase">
+            <span className="text-[9px] md:text-[10px] text-[#94A3B8] tracking-widest mt-0.5 uppercase">
               Enterprises
             </span>
           </div>
@@ -53,22 +53,25 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-3">
            <button onClick={toggleLanguage} className="font-bold border border-[#C5A059] px-2 py-1 rounded text-[10px] text-[#C5A059]">
             {lang === 'en' ? 'KN' : 'EN'}
           </button>
           <button onClick={() => setIsOpen(!isOpen)} className="text-[#C5A059]">
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-[#021c16] border-t border-[#C5A059]/20 p-6 space-y-6">
-          <a href="#home" className="block text-center text-[#E2E8F0] font-serif text-xl" onClick={() => setIsOpen(false)}>{t.nav.home}</a>
-          <a href="#products" className="block text-center text-[#E2E8F0] font-serif text-xl" onClick={() => setIsOpen(false)}>{t.nav.products}</a>
-          <a href="#contact" className="block text-center text-[#E2E8F0] font-serif text-xl" onClick={() => setIsOpen(false)}>{t.nav.contact}</a>
+        <div className="md:hidden bg-[#021c16] border-t border-[#C5A059]/20 p-6 space-y-6 h-screen">
+          <a href="#home" className="block text-center text-[#E2E8F0] font-serif text-xl border-b border-[#C5A059]/10 pb-4" onClick={() => setIsOpen(false)}>{t.nav.home}</a>
+          <a href="#products" className="block text-center text-[#E2E8F0] font-serif text-xl border-b border-[#C5A059]/10 pb-4" onClick={() => setIsOpen(false)}>{t.nav.products}</a>
+          <a href="#contact" className="block text-center text-[#E2E8F0] font-serif text-xl border-b border-[#C5A059]/10 pb-4" onClick={() => setIsOpen(false)}>{t.nav.contact}</a>
+          <a href="tel:+919876543210" className="block text-center bg-[#C5A059] text-[#021c16] py-3 rounded font-bold uppercase tracking-widest mt-8">
+            {t.nav.call}
+          </a>
         </div>
       )}
     </nav>
