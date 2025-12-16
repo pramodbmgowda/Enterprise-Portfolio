@@ -1,6 +1,6 @@
 'use client';
 import { useLanguage } from '@/context/LanguageContext';
-import { Leaf, Sprout, Bug } from 'lucide-react';
+import { Leaf, Sprout, Bug, ArrowRight } from 'lucide-react';
 
 export default function ProductGrid() {
   const { t } = useLanguage();
@@ -30,24 +30,28 @@ export default function ProductGrid() {
   ];
 
   return (
-    <section id="products" className="relative bg-[#021c16] py-24">
+    <section id="products" className="relative bg-[#021c16] py-24 border-t border-[#C5A059]/10">
       <div className="container mx-auto px-4">
         
-        {/* HEADER: FIXED ALIGNMENT 
-            - items-start: Aligns text to the LEFT on mobile (Phone)
-            - md:items-end: Aligns text to the BOTTOM on desktop
-        */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-[#C5A059]/20 pb-8">
-          <div>
-            <span className="text-[#C5A059] font-serif text-xs tracking-[0.2em] uppercase block mb-2">
-              Our Collection
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-serif">
-              {t.products.title}
-            </h2>
-          </div>
-          <a href="#contact" className="hidden md:block text-[#94A3B8] hover:text-white transition text-sm tracking-widest uppercase">
-            View Full Catalog →
+        {/* HEADER: PERFECTLY CENTERED (Phone & Laptop) */}
+        <div className="text-center mb-16 flex flex-col items-center">
+          
+          {/* Eyebrow Text */}
+          <span className="text-[#C5A059] font-serif text-xs tracking-[0.2em] uppercase block mb-3">
+            Our Collection
+          </span>
+
+          {/* Title */}
+          <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-6">
+            {t.products.title}
+          </h2>
+
+          {/* Gold Divider (Matches Hero) */}
+          <div className="w-24 h-1 bg-[#C5A059] rounded-full mb-8 opacity-80" />
+
+          {/* View Catalog Link - Centered */}
+          <a href="#contact" className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-white transition text-xs font-bold tracking-[0.15em] uppercase border-b border-transparent hover:border-[#C5A059] pb-1">
+            View Full Catalog <ArrowRight className="w-4 h-4" />
           </a>
         </div>
         

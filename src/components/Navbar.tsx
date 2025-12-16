@@ -47,7 +47,7 @@ export default function Navbar() {
             <span>{lang === 'en' ? 'EN' : 'ಕನ್ನಡ'}</span>
           </button>
 
-          <a href="tel:+919876543210" className="bg-[#C5A059] text-[#021c16] px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white transition shadow-[0_0_15px_rgba(197,160,89,0.3)]">
+          <a href="tel:+919663170200" className="bg-[#C5A059] text-[#021c16] px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white transition shadow-[0_0_15px_rgba(197,160,89,0.3)]">
             {t.nav.call}
           </a>
         </div>
