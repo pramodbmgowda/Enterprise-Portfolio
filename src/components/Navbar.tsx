@@ -46,7 +46,7 @@ export default function Navbar() {
 
           <div className="flex flex-col justify-center">
             <h1 className="text-xs md:text-lg font-bold tracking-wider text-[#C5A059] uppercase leading-none max-w-[140px] md:max-w-[200px]">
-              Kalabhairaveshvara
+              Kaalabhyraveshwara
             </h1>
             <span className="text-[9px] md:text-[10px] text-[#94A3B8] tracking-widest mt-0.5 uppercase">
               Enterprises
