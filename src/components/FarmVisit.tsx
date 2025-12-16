@@ -65,7 +65,7 @@ export default function FarmVisit() {
 
         {/* CTA Button */}
         <div className="mt-20 text-center">
-          <a href="https://wa.me/919876543210" className="inline-flex items-center gap-3 border border-[#C5A059] text-[#C5A059] px-10 py-4 rounded-full hover:bg-[#C5A059] hover:text-[#021c16] transition duration-300 uppercase tracking-widest text-xs font-bold">
+          <a href="https://wa.me/919663170200" className="inline-flex items-center gap-3 border border-[#C5A059] text-[#C5A059] px-10 py-4 rounded-full hover:bg-[#C5A059] hover:text-[#021c16] transition duration-300 uppercase tracking-widest text-xs font-bold">
             {t.visit?.cta} <ArrowRight className="w-4 h-4" />
           </a>
         </div>

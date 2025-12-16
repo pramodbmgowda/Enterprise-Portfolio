@@ -5,28 +5,25 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    // FIX 1: h-[100svh] (Small Viewport Height) prevents the section from resizing/jumping 
-    // when the mobile address bar moves.
-    <header id="home" className="relative h-[100svh] flex flex-col justify-center items-center overflow-hidden">
+    <header id="home" className="relative h-[100svh] flex flex-col items-center overflow-hidden">
       
-      {/* 1. BACKGROUND IMAGE */}
+      {/* 1. BACKGROUND */}
       <div 
-        // FIX 2: bg-scroll (Mobile) vs md:bg-fixed (Desktop)
-        // On phone (bg-scroll): The image moves with the page. Smooth, no lag.
-        // On laptop (md:bg-fixed): The image stays still (Parallax). Looks premium.
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
         style={{ 
           backgroundImage: "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')",
-          // Removed 'backgroundAttachment' from here to let Tailwind control it
         }} 
       />
-
-      {/* 2. ATMOSPHERE (Deep Green Tint) */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#021c16]/90 via-[#021c16]/75 to-[#021c16]" />
       <div className="bg-noise" />
 
-      {/* 3. MAIN CONTENT (Lifted Up) */}
-      <div className="container mx-auto px-4 relative z-10 text-center flex flex-col items-center pb-32">
+      {/* 2. TOP SPRING (Spacer) 
+          Strength: 1
+      */}
+      <div className="flex-1 w-full" />
+
+      {/* 3. MAIN CONTENT GROUP (Text + Mouse attached together) */}
+      <div className="container mx-auto px-4 relative z-10 text-center flex flex-col items-center shrink-0">
         
         {/* Ancient Seal */}
         <div className="border border-[#C5A059]/40 px-4 py-1.5 md:px-6 md:py-2 rounded-full backdrop-blur-md mb-6 md:mb-8 shadow-lg">
@@ -40,7 +37,7 @@ export default function Hero() {
           {t.hero.title}
         </h1>
 
-        {/* Gold Divider Line */}
+        {/* Gold Divider */}
         <div className="w-24 h-1 bg-[#C5A059] rounded-full mb-8 opacity-90 shadow-[0_0_10px_rgba(197,160,89,0.5)]" />
         
         {/* Subtitle */}
@@ -49,19 +46,24 @@ export default function Hero() {
         </p>
 
         {/* Buttons */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 mb-12">
           <a href="#products" className="bg-[#C5A059] text-[#021c16] px-8 py-3 md:px-10 md:py-4 font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-white transition-colors duration-500 rounded-sm shadow-[0_0_20px_rgba(197,160,89,0.3)]">
             {t.hero.cta_primary}
           </a>
         </div>
-      </div>
-      
-      {/* 4. SCROLL INDICATOR (Lifted High) */}
-      <div className="absolute bottom-48 md:bottom-24 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
+
+        {/* SCROLL INDICATOR (Attached here so it moves with text) */}
         <div className="w-[26px] h-[42px] border-2 border-[#C5A059]/40 rounded-full flex justify-center p-2 backdrop-blur-sm">
           <div className="w-1 h-2 bg-[#C5A059] rounded-full animate-scroll-down" />
         </div>
+
       </div>
+
+      {/* 4. BOTTOM SPRING (The Lift)
+          Strength: 1.5 (Bigger than top spring)
+          This pushes the content UP above the centerline.
+      */}
+      <div className="flex-[1.5] w-full min-h-[50px]" />
 
     </header>
   );
