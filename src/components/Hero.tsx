@@ -5,24 +5,24 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <header id="home" className="relative h-[100dvh] flex flex-col justify-center items-center overflow-hidden">
+    // FIX 1: h-[100svh] (Small Viewport Height) prevents the section from resizing/jumping 
+    // when the mobile address bar moves.
+    <header id="home" className="relative h-[100svh] flex flex-col justify-center items-center overflow-hidden">
       
-      {/* 1. FIXED PARALLAX BACKGROUND (New "Golden Harvest" Image) */}
+      {/* 1. BACKGROUND IMAGE */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        // FIX 2: bg-scroll (Mobile) vs md:bg-fixed (Desktop)
+        // On phone (bg-scroll): The image moves with the page. Smooth, no lag.
+        // On laptop (md:bg-fixed): The image stays still (Parallax). Looks premium.
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
         style={{ 
-          // A rich, golden-hour wheat/maize field. Matches your Gold text perfectly.
           backgroundImage: "url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80')",
-          backgroundAttachment: 'fixed' 
+          // Removed 'backgroundAttachment' from here to let Tailwind control it
         }} 
       />
 
-      {/* 2. ATMOSPHERE (Deep Green Tint)
-          - This tint is crucial. It blends the Gold image with your Dark Green theme.
-      */}
+      {/* 2. ATMOSPHERE (Deep Green Tint) */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#021c16]/90 via-[#021c16]/75 to-[#021c16]" />
-      
-      {/* Texture */}
       <div className="bg-noise" />
 
       {/* 3. MAIN CONTENT (Lifted Up) */}
