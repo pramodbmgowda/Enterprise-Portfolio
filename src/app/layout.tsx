@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export const metadata: Metadata = {
   title: "Kalabhairaveshvara Enterprises",
-  description: "Authorized fertilizer and pesticide dealers",
-  icons: {
-    icon: "/icon.png", 
-  },
+  description: "Premium Agricultural Solutions for Karnataka Farmers",
 };
 
 export default function RootLayout({
@@ -18,8 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      {/* REMOVED: 'Inter' font class. 
+         ADDED: 'antialiased' for smoother text rendering.
+      */}
+      <body className="antialiased">
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
