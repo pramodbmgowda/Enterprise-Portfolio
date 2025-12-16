@@ -33,8 +33,11 @@ export default function ProductGrid() {
     <section id="products" className="relative bg-[#021c16] py-24">
       <div className="container mx-auto px-4">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-[#C5A059]/20 pb-8">
+        {/* HEADER: FIXED ALIGNMENT 
+            - items-start: Aligns text to the LEFT on mobile (Phone)
+            - md:items-end: Aligns text to the BOTTOM on desktop
+        */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-[#C5A059]/20 pb-8">
           <div>
             <span className="text-[#C5A059] font-serif text-xs tracking-[0.2em] uppercase block mb-2">
               Our Collection
@@ -48,7 +51,7 @@ export default function ProductGrid() {
           </a>
         </div>
         
-        {/* The Grid - No messy cards, clean bordered layout */}
+        {/* The Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#C5A059]/20 border border-[#C5A059]/20">
           {products.map((item) => (
             <div key={item.id} className="bg-[#03221b] p-10 group hover:bg-[#052e24] transition duration-500">
